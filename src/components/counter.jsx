@@ -6,11 +6,6 @@ class Counter extends Component {
     tag: ["tag1", "tag2", "tag3"],
   };
 
-  // constructor() {
-  //   super();
-  //   this.handleIncrement = this.handleIncrement.bind(this);
-  // }
-
   renderTags() {
     if (this.state.tag.length === 0) return <p>There is not tag!!</p>;
 
@@ -22,9 +17,11 @@ class Counter extends Component {
       </ul>
     );
   }
+
   // instead of adding constructor we can hadel this event binding with arrow functions
-  handleIncrement = () => {
-    console.log("incremented!!", this);
+  handleIncrement = product => {
+    console.log(product);
+    this.setState({ count: this.state.count + 1});
   };
 
   render() {
@@ -32,8 +29,8 @@ class Counter extends Component {
       <div>
         <span className={this.getBadgeClass()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}
-          className="btn btn-secondory btn-sm"
+          onClick={ () => this.handleIncrement({ id: 1 })}
+          className="btn btn-secondary btn-sm"
         >
           Increment
         </button>
