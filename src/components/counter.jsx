@@ -6,6 +6,11 @@ class Counter extends Component {
   //   tag: ["tag1", "tag2", "tag3"],
   // };
 
+  componentDidUpdate (prevPorps, prevState) {
+    console.log("prevState", prevPorps);
+    console.log("prevState", prevState);
+  }
+
   renderTags() {
     if (this.state.tag.length === 0) return <p>There is not tag!!</p>;
 
